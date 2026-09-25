@@ -1,9 +1,15 @@
 package rw.itunda.core.designsystem.components
 
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Check
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import rw.itunda.core.designsystem.theme.Ids
@@ -27,13 +33,17 @@ fun IdsDropdownMenu(
     modifier: Modifier = Modifier,
     enabled: (Int) -> Boolean = { true },
     trailingContent: (@Composable RowScope.(Int) -> Unit)? = null,
+    selectedIndex: Int? = null,
+    maxHeight: androidx.compose.ui.unit.Dp = 360.dp,
 ) {
     if (items.isEmpty()) return
 
     DropdownMenu(
         expanded = expanded,
         onDismissRequest = onDismissRequest,
-        modifier = modifier,
+        modifier = modifier
+            .heightIn(max = maxHeight)
+            .verticalScroll(rememberScrollState()),
     ) {
         items.forEachIndexed { index, label ->
             DropdownMenuItem(
@@ -45,7 +55,9 @@ fun IdsDropdownMenu(
                 enabled = enabled(index),
                 trailingIcon = trailingContent?.let { content ->
                     { content(index) }
-                },
+                } ?: if (selectedIndex == index) {
+                    { Icon(Icons.Default.Check, contentDescription = null) }
+                } else null,
             )
         }
     }
