@@ -18,10 +18,10 @@ fun IdsSearchField(
     searchIcon: ImageVector,
     modifier: Modifier = Modifier,
     placeholder: String = "Search",
-    searchContentDescription: String = "Search",
+    searchContentDescription: String,
     clearIcon: ImageVector? = null,
     onClear: (() -> Unit)? = null,
-    clearContentDescription: String = "Clear search",
+    clearContentDescription: String? = null,
     enabled: Boolean = true,
 ) {
     OutlinedTextField(
