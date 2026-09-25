@@ -47,3 +47,18 @@ Theme overrides are a controlled extension point, not a second token source.
 - Theme changes should preserve accessibility and worst-case behavior.
 
 This structure is intended to let Client, Business, and Developer surfaces share one IDS foundation while allowing deliberate product-level variation.
+
+
+## Token governance checklist
+
+Every new token should answer these questions before merging:
+
+1. Is this a reusable design decision rather than a one-off screen value?
+2. Does it belong at primitive, semantic, or component level?
+3. Can an existing token express the same intent?
+4. Does the token need a theme override?
+5. Does it preserve light/dark and accessibility behavior?
+6. Is it represented in the machine-readable registry?
+7. Are generated platform outputs updated without drift?
+
+A product-specific value should remain local unless it represents a recurring system pattern.
