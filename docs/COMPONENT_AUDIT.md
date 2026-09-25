@@ -22,8 +22,11 @@ TDS documents components from the large structure down to detailed states, then 
 ## Current priority audit
 
 ### 1. Dialog
+**Implemented**
+- Action labels are now caller-owned; IDS no longer embeds English `Confirm` / `Cancel` defaults.
+
 **Gaps to close**
-- Remove English action-label defaults ("Confirm", "Cancel") after auditing call sites.
+- Audit call sites for localized labels.
 - Define focus/dismissal behavior for TalkBack.
 - Document long-title and long-message cases.
 - Document position/layering and back-button dismissal.
