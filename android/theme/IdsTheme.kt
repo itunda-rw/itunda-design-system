@@ -37,7 +37,10 @@ fun IdsTheme(
     val colorScheme = if (darkTheme) IdsDarkColors else IdsLightColors
     val semanticColors = if (darkTheme) IdsDarkSemanticColors else IdsLightSemanticColors
 
-    CompositionLocalProvider(LocalIdsSemanticColors provides semanticColors) {
+    CompositionLocalProvider(
+        LocalIdsSemanticColors provides semanticColors,
+        LocalIdsComponentTokens provides IdsDefaultComponentTokens,
+    ) {
         MaterialTheme(
             colorScheme = colorScheme,
             content = content
