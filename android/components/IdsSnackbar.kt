@@ -24,7 +24,7 @@ fun IdsSnackbarHost(
 ) {
     SnackbarHost(hostState = hostState, modifier = modifier) { data ->
         Snackbar(
-            modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
+            modifier = modifier.semantics { liveRegion = LiveRegionMode.Polite },
             snackbarData = data,
             containerColor = Ids.colors.surface,
             contentColor = Ids.colors.textPrimary,
