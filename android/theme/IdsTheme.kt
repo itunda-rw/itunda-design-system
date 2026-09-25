@@ -32,10 +32,12 @@ private val IdsDarkColors = darkColorScheme(
 @Composable
 fun IdsTheme(
     darkTheme: Boolean = androidx.compose.foundation.isSystemInDarkTheme(),
+    variant: IdsThemeVariant = IdsThemeVariant.Core,
     content: @Composable () -> Unit
 ) {
     val colorScheme = if (darkTheme) IdsDarkColors else IdsLightColors
-    val semanticColors = if (darkTheme) IdsDarkSemanticColors else IdsLightSemanticColors
+    val baseSemanticColors = if (darkTheme) IdsDarkSemanticColors else IdsLightSemanticColors
+    val semanticColors = baseSemanticColors.withOverrides(variant.overrides())
 
     CompositionLocalProvider(
         LocalIdsSemanticColors provides semanticColors,
