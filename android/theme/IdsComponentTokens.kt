@@ -26,8 +26,15 @@ data class IdsButtonTokens(
 )
 
 @Immutable
+data class IdsCardTokens(
+    val radius: Dp = 12.dp,
+    val borderWidth: Dp = 1.dp,
+)
+
+@Immutable
 data class IdsComponentTokens(
     val button: IdsButtonTokens = IdsButtonTokens(),
+    val card: IdsCardTokens = IdsCardTokens(),
 )
 
 val IdsDefaultComponentTokens = IdsComponentTokens()
