@@ -27,7 +27,7 @@
 - Theme overrides for client / business / developer surfaces — Architecture added (docs/THEME_ARCHITECTURE.md)
 - Generated iOS / Flutter / React Native outputs
 - Full accessibility and localization audit — In progress (`docs/COMPONENT_AUDIT.md`)
-- Component API strategy — Documented (flat + compound)\n- Component examples and worst-case playgrounds
+- Component API strategy — Documented (flat + compound)\n- Component examples and worst-case playgrounds — Contract matrix added (`docs/WORST_CASE_MATRIX.md`)
 
 ## Quality gate
 A component becomes stable only after API, states, accessibility, theme, localization, large-text, motion, documentation, and worst-case usage are defined.
