@@ -83,5 +83,23 @@
       "value": "10dp",
       "description": "Small button corner radius."
     }
+    ,{
+      "category": "Component",
+      "styleElement": "Card",
+      "level": "Component",
+      "name": "radius",
+      "type": "dimension",
+      "value": "12dp",
+      "description": "Default card corner radius."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Card",
+      "level": "Component",
+      "name": "border-width",
+      "type": "dimension",
+      "value": "1dp",
+      "description": "Default card border width."
+    }
   ]
 }
