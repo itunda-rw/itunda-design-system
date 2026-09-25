@@ -9,9 +9,8 @@ import androidx.compose.ui.unit.dp
 /**
  * Component-level semantic tokens.
  *
- * These values intentionally reference stable semantic roles rather than raw
- * product colors. Components consume this layer so product themes can override
- * component meaning without forking component implementations.
+ * Components consume this layer instead of embedding geometry values so derived
+ * product themes can evolve component behavior without forking implementations.
  */
 @Immutable
 data class IdsButtonTokens(
@@ -32,9 +31,31 @@ data class IdsCardTokens(
 )
 
 @Immutable
+data class IdsBottomSheetTokens(
+    val radius: Dp = 16.dp,
+    val dragHandleWidth: Dp = 36.dp,
+    val dragHandleHeight: Dp = 4.dp,
+    val dragHandleTopPadding: Dp = 10.dp,
+    val dragHandleBottomPadding: Dp = 6.dp,
+)
+
+@Immutable
+data class IdsNavigationBarTokens(
+    val itemMinHeight: Dp = 56.dp,
+)
+
+@Immutable
+data class IdsTextFieldTokens(
+    val supportingTextMinHeight: Dp = 20.dp,
+)
+
+@Immutable
 data class IdsComponentTokens(
     val button: IdsButtonTokens = IdsButtonTokens(),
     val card: IdsCardTokens = IdsCardTokens(),
+    val bottomSheet: IdsBottomSheetTokens = IdsBottomSheetTokens(),
+    val navigationBar: IdsNavigationBarTokens = IdsNavigationBarTokens(),
+    val textField: IdsTextFieldTokens = IdsTextFieldTokens(),
 )
 
 val IdsDefaultComponentTokens = IdsComponentTokens()
