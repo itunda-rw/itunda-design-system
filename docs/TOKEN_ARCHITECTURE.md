@@ -29,3 +29,7 @@ Component tokens prevent components from reaching directly into unrelated primit
 design-system/tokens/tokens.json is the primitive source for generated platform values. Hand-authored semantic mappings remain explicit so their intent is reviewable.
 
 Current machine-readable registry: `design-system/tokens/semantic-component.tokens.json`. It records semantic intent and component contracts using category, style element, level, name, type, value/reference, and description. Primitive values remain canonical in `tokens.json`.
+
+## Registry validation
+
+`design-system/tokens/tokens.json` remains the canonical primitive source. `design-system/tokens/semantic-component.tokens.json` is the machine-readable semantic/component registry. CI validates both JSON documents before generating platform primitives, so malformed token metadata fails early rather than reaching generated outputs. This keeps the token model human- and machine-readable while preserving a clear source-of-truth boundary, consistent with TDS's documented token architecture. urlToss color/token systemhttps://toss.tech/article/43385
