@@ -34,6 +34,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.dismiss
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
@@ -115,6 +116,7 @@ fun IdsDraggableSheetOverlay(
     halfFraction: Float = 0.55f,
     fullTopGap: Dp = 96.dp,
     sheetContentDescription: String? = null,
+    onDismissRequest: (() -> Unit)? = null,
     background: @Composable BoxScope.() -> Unit,
     sheetContent: @Composable ColumnScope.() -> Unit,
 ) {
@@ -152,7 +154,10 @@ fun IdsDraggableSheetOverlay(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .then(if (sheetContentDescription != null) Modifier.semantics { contentDescription = sheetContentDescription } else Modifier)
+                    .then(if (sheetContentDescription != null) Modifier.semantics {
+                        contentDescription = sheetContentDescription
+                        if (onDismissRequest != null) dismiss { onDismissRequest(); true }
+                    } else Modifier)
                     .background(Ids.colors.surface, RoundedCornerShape(topStart = idsComponentTokens().bottomSheet.radius, topEnd = idsComponentTokens().bottomSheet.radius)),
             ) {
                 IdsSheetDragHandle()
