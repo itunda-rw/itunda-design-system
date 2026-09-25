@@ -31,12 +31,17 @@ import androidx.compose.animation.core.tween
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.dismiss
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import kotlin.math.roundToInt
 import rw.itunda.core.designsystem.theme.Ids
 import rw.itunda.core.designsystem.theme.IdsTypography
+import rw.itunda.core.designsystem.theme.idsComponentTokens
 
 /**
  * Real shared draggable bottom-sheet primitive (2026-07-24) -- closes the gap
@@ -89,9 +94,9 @@ private fun ColumnScope.IdsSheetDragHandle() {
     Box(
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
-            .padding(top = 10.dp, bottom = 6.dp)
-            .width(36.dp)
-            .height(4.dp)
+            .padding(top = idsComponentTokens().bottomSheet.dragHandleTopPadding, bottom = idsComponentTokens().bottomSheet.dragHandleBottomPadding)
+            .width(idsComponentTokens().bottomSheet.dragHandleWidth)
+            .height(idsComponentTokens().bottomSheet.dragHandleHeight)
             .background(Ids.colors.textSecondary.copy(alpha = 0.4f), RoundedCornerShape(2.dp)),
     )
 }
@@ -110,6 +115,8 @@ fun IdsDraggableSheetOverlay(
     peekHeight: Dp = 128.dp,
     halfFraction: Float = 0.55f,
     fullTopGap: Dp = 96.dp,
+    sheetContentDescription: String? = null,
+    onDismissRequest: (() -> Unit)? = null,
     background: @Composable BoxScope.() -> Unit,
     sheetContent: @Composable ColumnScope.() -> Unit,
 ) {
@@ -147,7 +154,11 @@ fun IdsDraggableSheetOverlay(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(Ids.colors.surface, RoundedCornerShape(topStart = Ids.layout.cardCornerRadius, topEnd = Ids.layout.cardCornerRadius)),
+                    .then(if (sheetContentDescription != null) Modifier.semantics {
+                        contentDescription = sheetContentDescription
+                        if (onDismissRequest != null) dismiss { onDismissRequest(); true }
+                    } else Modifier)
+                    .background(Ids.colors.surface, RoundedCornerShape(topStart = idsComponentTokens().bottomSheet.radius, topEnd = idsComponentTokens().bottomSheet.radius)),
             ) {
                 IdsSheetDragHandle()
                 sheetContent()
@@ -159,7 +170,7 @@ fun IdsDraggableSheetOverlay(
 /** Compound slot: a title (+ optional subtitle) header for the sheet's own content. */
 @Composable
 fun IdsSheetHeader(title: String, subtitle: String? = null, modifier: Modifier = Modifier) {
-    Column(modifier = modifier.fillMaxWidth().padding(horizontal = Ids.layout.screenHorizontal)) {
+    Column(modifier.semantics { heading() } = modifier.fillMaxWidth().padding(horizontal = Ids.layout.screenHorizontal)) {
         Text(title, style = IdsTypography.Title2, color = Ids.colors.textPrimary)
         if (subtitle != null) {
             Text(subtitle, style = IdsTypography.Body2, color = Ids.colors.textSecondary)
@@ -193,6 +204,7 @@ fun IdsBottomSheetOverlay(
     subtitle: String? = null,
     peekHeight: Dp = 128.dp,
     background: @Composable BoxScope.() -> Unit,
+    onDismissRequest: (() -> Unit)? = null,
     sheetBody: @Composable ColumnScope.() -> Unit,
 ) {
     IdsDraggableSheetOverlay(
@@ -200,6 +212,8 @@ fun IdsBottomSheetOverlay(
         modifier = modifier,
         peekHeight = peekHeight,
         background = background,
+        sheetContentDescription = title,
+        onDismissRequest = onDismissRequest,
         sheetContent = {
             IdsSheetHeader(title, subtitle)
             sheetBody()

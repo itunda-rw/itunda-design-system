@@ -1,0 +1,150 @@
+{
+  "$comment": "Machine-readable Itunda semantic/component token registry. Primitive values remain canonical in tokens.json; this registry maps stable meaning to component behavior.",
+  "schemaVersion": 1,
+  "tokens": [
+    {
+      "category": "Color",
+      "styleElement": "Color",
+      "level": "Semantic",
+      "name": "brand",
+      "type": "color",
+      "value": "blue-500",
+      "description": "Primary Itunda action and identity color."
+    },
+    {
+      "category": "Color",
+      "styleElement": "Color",
+      "level": "Semantic",
+      "name": "on-brand",
+      "type": "color",
+      "value": "white",
+      "description": "Content placed on the brand surface."
+    },
+    {
+      "category": "Color",
+      "styleElement": "Color",
+      "level": "Semantic",
+      "name": "surface-soft",
+      "type": "color",
+      "value": "grey-100",
+      "description": "Low-emphasis container surface."
+    },
+    {
+      "category": "Color",
+      "styleElement": "Color",
+      "level": "Semantic",
+      "name": "text-primary",
+      "type": "color",
+      "value": "grey-900",
+      "description": "Primary readable content."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Button",
+      "level": "Component",
+      "name": "height-large",
+      "type": "dimension",
+      "value": "56dp",
+      "description": "Large button minimum height."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Button",
+      "level": "Component",
+      "name": "height-medium",
+      "type": "dimension",
+      "value": "48dp",
+      "description": "Medium button minimum height."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Button",
+      "level": "Component",
+      "name": "height-small",
+      "type": "dimension",
+      "value": "36dp",
+      "description": "Small button minimum height."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Button",
+      "level": "Component",
+      "name": "radius-large",
+      "type": "dimension",
+      "value": "12dp",
+      "description": "Large and medium button corner radius."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Button",
+      "level": "Component",
+      "name": "radius-small",
+      "type": "dimension",
+      "value": "10dp",
+      "description": "Small button corner radius."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Card",
+      "level": "Component",
+      "name": "radius",
+      "type": "dimension",
+      "value": "12dp",
+      "description": "Default card corner radius."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Card",
+      "level": "Component",
+      "name": "border-width",
+      "type": "dimension",
+      "value": "1dp",
+      "description": "Default card border width."
+    },
+    {
+      "category": "Component",
+      "styleElement": "BottomSheet",
+      "level": "Component",
+      "name": "radius",
+      "type": "dimension",
+      "value": "16dp",
+      "description": "Top corner radius for draggable bottom-sheet surfaces."
+    },
+    {
+      "category": "Component",
+      "styleElement": "BottomSheet",
+      "level": "Component",
+      "name": "drag-handle-width",
+      "type": "dimension",
+      "value": "36dp",
+      "description": "Standard drag-handle width."
+    },
+    {
+      "category": "Component",
+      "styleElement": "BottomSheet",
+      "level": "Component",
+      "name": "drag-handle-height",
+      "type": "dimension",
+      "value": "4dp",
+      "description": "Standard drag-handle height."
+    },
+    {
+      "category": "Component",
+      "styleElement": "NavigationBar",
+      "level": "Component",
+      "name": "item-min-height",
+      "type": "dimension",
+      "value": "56dp",
+      "description": "Minimum navigation item height."
+    },
+    {
+      "category": "Component",
+      "styleElement": "TextField",
+      "level": "Component",
+      "name": "supporting-text-min-height",
+      "type": "dimension",
+      "value": "20dp",
+      "description": "Reserved minimum height for supporting or error text to reduce layout shift."
+    }
+  ]
+}

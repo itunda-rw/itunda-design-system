@@ -1,0 +1,25 @@
+name: Design system quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Validate token JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('design-system/tokens/tokens.json','utf8')); console.log('tokens.json: valid')"
+      - name: Validate semantic/component token registry
+        run: node -e "const p='design-system/tokens/semantic-component.tokens.json'; const x=JSON.parse(require('fs').readFileSync(p,'utf8')); if(x.schemaVersion!==1 || !Array.isArray(x.tokens)) process.exit(1); console.log('semantic-component.tokens.json: valid')"
+      - name: Regenerate Android primitives
+        run: node packages/design-tokens/generate-tokens.js
+      - name: Regenerate Web primitives
+        run: node packages/design-tokens/generate-web-primitives.js
+      - name: Fail on generated drift
+        run: git diff --exit-code -- design-system/android/theme/IdsColors.kt design-system/web/ids-primitives.css

@@ -1,0 +1,39 @@
+# Component Roadmap
+
+## Core components
+| Component | Status |
+| --- | --- |
+| Button | Ready |
+| TextField | Refined |
+| SearchField | Added |
+| ListRow | Refined |
+| Card | Ready |
+| BottomSheet | Ready |
+| Dialog | Added |
+| Snackbar | Added |
+| Checkbox / Radio / Switch | Added |
+| Tabs | Refined |
+| TopAppBar | Added |
+| NavigationBar | Added |
+| SegmentedControl | Added |
+| Loading / Empty / Error | Added |
+
+## Next wave
+- Menu / Dropdown — Refined (long-list scrolling + selected state)
+- Skeleton — Added
+- Tooltip — Added
+- Date / time selection patterns
+- Component-level token layer — Expanded (Button + Card + BottomSheet + NavigationBar + TextField; registry validated in CI)
+- Theme overrides for client / business / developer surfaces — Implemented and applied by `IdsTheme`
+- Generated iOS / Flutter / React Native outputs
+- Full accessibility and localization audit — In progress (`docs/COMPONENT_AUDIT.md`); overlay dismissal/semantics and transient announcements implemented
+- Component API strategy — Documented (flat + compound)\n- Component examples and worst-case playgrounds — Contract matrix added (`docs/WORST_CASE_MATRIX.md`); executable playgrounds remain
+
+## Guide coverage
+
+Every component guide follows the same reading order: overview → worst-case example → anatomy → variants → states → content resilience → position/layering → accessibility → theme → motion → API/examples → quality checklist. This mirrors the TDS guide pattern of starting with the whole component, then details and edge cases, with accessibility treated as an explicit design responsibility. urlToss component guide methodologyhttps://toss.tech/article/toss-design-system-guide
+
+## Quality gate
+A component becomes stable only after API, states, accessibility, theme, localization, large-text, motion, documentation, and worst-case usage are defined.
+
+TDS explicitly treats long text, dark mode, screen-reader behavior, reduced motion, and overlay positioning as component-guide concerns rather than product-by-product decisions. IDS uses the same quality gate while keeping Itunda's own blue brand and component APIs. urlToss component guide methodologyhttps://toss.tech/article/toss-design-system-guide

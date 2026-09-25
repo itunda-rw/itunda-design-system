@@ -6,38 +6,43 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 
-private val IdsLightColors = lightColorScheme(
-    primary = IdsLightSemanticColors.brand,
-    onPrimary = IdsColors.White,
-    background = IdsLightSemanticColors.background,
-    onBackground = IdsLightSemanticColors.textPrimary,
-    surface = IdsLightSemanticColors.surface,
-    onSurface = IdsLightSemanticColors.textPrimary,
-    error = IdsLightSemanticColors.danger
+@Composable
+private fun idsLightColorScheme(colors: IdsSemanticColors) = lightColorScheme(
+    primary = colors.brand,
+    onPrimary = colors.onBrand,
+    background = colors.background,
+    onBackground = colors.textPrimary,
+    surface = colors.surface,
+    onSurface = colors.textPrimary,
+    error = colors.danger,
 )
 
-// Real black, matching the actual Toss app's dark mode (was navy #191F28
-// before -- didn't match Toss or this project's own hand-tuned dark accents
-// elsewhere; see IdsSemanticColors.kt for the full account).
-private val IdsDarkColors = darkColorScheme(
-    primary = IdsDarkSemanticColors.brand,
-    onPrimary = IdsColors.White,
-    background = IdsDarkSemanticColors.background,
-    onBackground = IdsDarkSemanticColors.textPrimary,
-    surface = IdsDarkSemanticColors.surface,
-    onSurface = IdsDarkSemanticColors.textPrimary,
-    error = IdsDarkSemanticColors.danger
+@Composable
+private fun idsDarkColorScheme(colors: IdsSemanticColors) = darkColorScheme(
+    primary = colors.brand,
+    onPrimary = colors.onBrand,
+    background = colors.background,
+    onBackground = colors.textPrimary,
+    surface = colors.surface,
+    onSurface = colors.textPrimary,
+    error = colors.danger,
 )
 
 @Composable
 fun IdsTheme(
     darkTheme: Boolean = androidx.compose.foundation.isSystemInDarkTheme(),
+    variant: IdsThemeVariant = IdsThemeVariant.Core,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) IdsDarkColors else IdsLightColors
-    val semanticColors = if (darkTheme) IdsDarkSemanticColors else IdsLightSemanticColors
+    val overrides = variant.overrides()
+    val baseSemanticColors = if (darkTheme) IdsDarkSemanticColors else IdsLightSemanticColors
+    val semanticColors = baseSemanticColors.withOverrides(overrides)
+    val colorScheme = if (darkTheme) idsDarkColorScheme(semanticColors) else idsLightColorScheme(semanticColors)
 
-    CompositionLocalProvider(LocalIdsSemanticColors provides semanticColors) {
+    CompositionLocalProvider(
+        LocalIdsSemanticColors provides semanticColors,
+        LocalIdsComponentTokens provides overrides.componentTokens,
+    ) {
         MaterialTheme(
             colorScheme = colorScheme,
             content = content
