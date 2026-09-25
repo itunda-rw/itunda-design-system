@@ -204,6 +204,7 @@ fun IdsBottomSheetOverlay(
     subtitle: String? = null,
     peekHeight: Dp = 128.dp,
     background: @Composable BoxScope.() -> Unit,
+    onDismissRequest: (() -> Unit)? = null,
     sheetBody: @Composable ColumnScope.() -> Unit,
 ) {
     IdsDraggableSheetOverlay(
@@ -212,6 +213,7 @@ fun IdsBottomSheetOverlay(
         peekHeight = peekHeight,
         background = background,
         sheetContentDescription = title,
+        onDismissRequest = onDismissRequest,
         sheetContent = {
             IdsSheetHeader(title, subtitle)
             sheetBody()
