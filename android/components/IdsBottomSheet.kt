@@ -31,6 +31,9 @@ import androidx.compose.animation.core.tween
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.heading
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
@@ -111,6 +114,7 @@ fun IdsDraggableSheetOverlay(
     peekHeight: Dp = 128.dp,
     halfFraction: Float = 0.55f,
     fullTopGap: Dp = 96.dp,
+    sheetContentDescription: String? = null,
     background: @Composable BoxScope.() -> Unit,
     sheetContent: @Composable ColumnScope.() -> Unit,
 ) {
@@ -148,6 +152,7 @@ fun IdsDraggableSheetOverlay(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .then(if (sheetContentDescription != null) Modifier.semantics { contentDescription = sheetContentDescription } else Modifier)
                     .background(Ids.colors.surface, RoundedCornerShape(topStart = idsComponentTokens().bottomSheet.radius, topEnd = idsComponentTokens().bottomSheet.radius)),
             ) {
                 IdsSheetDragHandle()
@@ -160,7 +165,7 @@ fun IdsDraggableSheetOverlay(
 /** Compound slot: a title (+ optional subtitle) header for the sheet's own content. */
 @Composable
 fun IdsSheetHeader(title: String, subtitle: String? = null, modifier: Modifier = Modifier) {
-    Column(modifier = modifier.fillMaxWidth().padding(horizontal = Ids.layout.screenHorizontal)) {
+    Column(modifier.semantics { heading() } = modifier.fillMaxWidth().padding(horizontal = Ids.layout.screenHorizontal)) {
         Text(title, style = IdsTypography.Title2, color = Ids.colors.textPrimary)
         if (subtitle != null) {
             Text(subtitle, style = IdsTypography.Body2, color = Ids.colors.textSecondary)
@@ -201,6 +206,7 @@ fun IdsBottomSheetOverlay(
         modifier = modifier,
         peekHeight = peekHeight,
         background = background,
+        sheetContentDescription = title,
         sheetContent = {
             IdsSheetHeader(title, subtitle)
             sheetBody()
