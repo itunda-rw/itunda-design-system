@@ -6,8 +6,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.foundation.layout.height
 import androidx.compose.ui.graphics.vector.ImageVector
 import rw.itunda.core.designsystem.theme.Ids
+import rw.itunda.core.designsystem.theme.idsComponentTokens
 
 data class IdsNavigationItem(
     val label: String,
@@ -29,6 +31,7 @@ fun IdsNavigationBar(
     ) {
         items.forEachIndexed { index, item ->
             NavigationBarItem(
+                modifier = Modifier.height(idsComponentTokens().navigationBar.itemMinHeight),
                 selected = index == selectedIndex,
                 onClick = { onSelected(index) },
                 icon = {
