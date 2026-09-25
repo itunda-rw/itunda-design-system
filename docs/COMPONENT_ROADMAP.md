@@ -29,6 +29,10 @@
 - Full accessibility and localization audit — In progress (`docs/COMPONENT_AUDIT.md`)
 - Component API strategy — Documented (flat + compound)\n- Component examples and worst-case playgrounds — Contract matrix added (`docs/WORST_CASE_MATRIX.md`)
 
+## Guide coverage
+
+Every component guide follows the same reading order: overview → worst-case example → anatomy → variants → states → content resilience → position/layering → accessibility → theme → motion → API/examples → quality checklist. This mirrors the TDS guide pattern of starting with the whole component, then details and edge cases, with accessibility treated as an explicit design responsibility. urlToss component guide methodologyhttps://toss.tech/article/toss-design-system-guide
+
 ## Quality gate
 A component becomes stable only after API, states, accessibility, theme, localization, large-text, motion, documentation, and worst-case usage are defined.
 
