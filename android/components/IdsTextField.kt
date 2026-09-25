@@ -1,6 +1,7 @@
 package rw.itunda.core.designsystem.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
@@ -9,14 +10,15 @@ import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.input.VisualTransformation
 import rw.itunda.core.designsystem.theme.Ids
 
 /**
  * Shared IDS text input contract.
  *
  * Product screens should use this instead of styling Material3 TextField directly.
- * The wrapper centralizes semantic colors, error behavior, supporting text,
- * accessibility labels, and leading/trailing actions.
+ * The wrapper centralizes semantic colors, error/supporting text, keyboard behavior,
+ * icon accessibility, multiline behavior, and leading/trailing actions.
  */
 @Composable
 fun IdsTextField(
@@ -33,19 +35,31 @@ fun IdsTextField(
     trailingContentDescription: String? = null,
     onTrailingIconClick: (() -> Unit)? = null,
     enabled: Boolean = true,
+    readOnly: Boolean = false,
     singleLine: Boolean = true,
+    minLines: Int = 1,
+    maxLines: Int = if (singleLine) 1 else 5,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
 ) {
     val hasError = errorText != null
+    val supporting = errorText ?: supportingText
+
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier.fillMaxWidth(),
         enabled = enabled,
+        readOnly = readOnly,
         singleLine = singleLine,
+        minLines = if (singleLine) 1 else minLines,
+        maxLines = if (singleLine) 1 else maxLines.coerceAtLeast(minLines),
+        keyboardOptions = keyboardOptions,
+        visualTransformation = visualTransformation,
         isError = hasError,
         label = label?.let { { Text(it) } },
         placeholder = placeholder?.let { { Text(it) } },
-        supportingText = (errorText ?: supportingText)?.let { { Text(it) } },
+        supportingText = supporting?.let { { Text(it) } },
         leadingIcon = leadingIcon?.let { icon ->
             { Icon(icon, contentDescription = leadingContentDescription) }
         },
@@ -65,8 +79,12 @@ fun IdsTextField(
             unfocusedIndicatorColor = Ids.colors.divider,
             errorIndicatorColor = Ids.colors.danger,
             focusedLabelColor = Ids.colors.brand,
+            unfocusedLabelColor = Ids.colors.textSecondary,
             cursorColor = Ids.colors.brand,
             errorLabelColor = Ids.colors.danger,
+            focusedSupportingTextColor = if (hasError) Ids.colors.danger else Ids.colors.textSecondary,
+            unfocusedSupportingTextColor = if (hasError) Ids.colors.danger else Ids.colors.textSecondary,
+            errorSupportingTextColor = Ids.colors.danger,
         ),
     )
 }
