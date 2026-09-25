@@ -82,8 +82,8 @@
       "type": "dimension",
       "value": "10dp",
       "description": "Small button corner radius."
-    }
-    ,{
+    },
+    {
       "category": "Component",
       "styleElement": "Card",
       "level": "Component",
@@ -100,6 +100,51 @@
       "type": "dimension",
       "value": "1dp",
       "description": "Default card border width."
+    },
+    {
+      "category": "Component",
+      "styleElement": "BottomSheet",
+      "level": "Component",
+      "name": "radius",
+      "type": "dimension",
+      "value": "16dp",
+      "description": "Top corner radius for draggable bottom-sheet surfaces."
+    },
+    {
+      "category": "Component",
+      "styleElement": "BottomSheet",
+      "level": "Component",
+      "name": "drag-handle-width",
+      "type": "dimension",
+      "value": "36dp",
+      "description": "Standard drag-handle width."
+    },
+    {
+      "category": "Component",
+      "styleElement": "BottomSheet",
+      "level": "Component",
+      "name": "drag-handle-height",
+      "type": "dimension",
+      "value": "4dp",
+      "description": "Standard drag-handle height."
+    },
+    {
+      "category": "Component",
+      "styleElement": "NavigationBar",
+      "level": "Component",
+      "name": "item-min-height",
+      "type": "dimension",
+      "value": "56dp",
+      "description": "Minimum navigation item height."
+    },
+    {
+      "category": "Component",
+      "styleElement": "TextField",
+      "level": "Component",
+      "name": "supporting-text-min-height",
+      "type": "dimension",
+      "value": "20dp",
+      "description": "Reserved minimum height for supporting or error text to reduce layout shift."
     }
   ]
 }
