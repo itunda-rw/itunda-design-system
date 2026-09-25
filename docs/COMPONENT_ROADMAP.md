@@ -12,7 +12,7 @@
 | Dialog | Added |
 | Snackbar | Added |
 | Checkbox / Radio / Switch | Added |
-| Tabs | Added |
+| Tabs | Refined |
 | TopAppBar | Added |
 | NavigationBar | Added |
 | SegmentedControl | Added |
