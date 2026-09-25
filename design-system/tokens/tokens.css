@@ -1,45 +1,15 @@
 /*
- * Single source of truth for itunda's web color tokens (2026-07-11).
+ * Itunda web design tokens.
  *
- * Until this file existed, host-app/src/index.css and bank-mfe/src/index.css each
- * hand-copied the same Toss palette independently -- and one value had already
- * drifted: bank-mfe's --toss-green (as these variables were named at the time) was
- * #34c759 (Apple's iOS system green), not Toss's real green500 (#04C065) that
- * android/core/designsystem/theme/IdsColors.kt and
- * ios/Core/DesignSystem/Sources/Theme/IdsTheme.swift both actually use. Fixed here,
- * corrected everywhere that imports this file instead of its own copy.
+ * Primitive colors are sourced from design-system/tokens/tokens.json.
+ * Semantic roles, typography, motion, shape, and theme mappings live here because
+ * they describe how the product uses those primitives rather than copying raw values
+ * into individual applications.
  *
- * Light values match android/.../IdsSemanticColors.kt's IdsLightSemanticColors and
- * ios/.../IDS.swift's IDS.Colors exactly (post their own 2026-07-11 reconciliation).
- * Dark values match IdsDarkSemanticColors -- previously the web apps had *no* dark
- * mode at all; this gives them the same real dark palette mobile already has,
- * verified live on Android (see docs/ARCHITECTURE.md §5 item 5), not a guess.
- *
- * Variable names renamed --toss-* -> --itunda-* (2026-08-10, user-flagged): the web
- * layer's own internal vocabulary naming itself after a different company's product
- * had the exact same "unfinished fork, not a real product" problem Android's
- * TossBlue/TossTab aliases just got fixed for (see ItundaAppScreen.kt's own doc
- * comment). Every consuming file (.css and .tsx) was updated to match -- a real
- * rename this time, not deferred as a "drop-in" alias.
- *
- * Grey/blue/red base values below (2026-07-13) are drawn from
- * packages/design-tokens/tokens.json, this repo's real single source of truth for
- * the primitive color scale (sourced from Toss's own official TDS docs) -- verified
- * to match, not codegen'd directly into this file, since this file's own shape is
- * semantic/light-dark-reactive (--itunda-blue-active, grey-100 as "app background"),
- * not a raw numbered primitive scale like Android's IdsColors.kt/iOS's IdsTheme.swift
- * IdsColors struct, which generate-tokens.js does regenerate directly.
+ * IDS uses public design-system research as a benchmark for engineering quality, but
+ * this file is Itunda-owned: its brand, semantic names, component contracts, and
+ * product decisions must remain independent.
  */
-
-/* Real typeface fix (2026-08-13, direct user feedback: "we are still far away from
-   toss") -- see android/core/designsystem/.../Pretendard.kt for the full sourced
-   account (github.com/orioncactus/pretendard, SIL Open Font License 1.1, license text
-   bundled at packages/design-tokens/PRETENDARD_LICENSE.txt). Every real web app in
-   this repo was rendering in the plain OS system-font stack (confirmed via grep
-   before this fix, matching Android/iOS's identical gap) despite the whole visual
-   language elsewhere being built around Toss's own real look. font-display: swap so
-   a slow font load never blocks text from rendering -- an instant system-font paint
-   that reflows once Pretendard loads beats a blank screen while it downloads. */
 @font-face {
   font-family: "Pretendard";
   src: url("./fonts/Pretendard-Regular.woff2") format("woff2");
