@@ -9,9 +9,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.input.VisualTransformation
 import rw.itunda.core.designsystem.theme.Ids
+import rw.itunda.core.designsystem.theme.idsComponentTokens
 
 /**
  * Shared IDS text input contract.
@@ -59,7 +61,7 @@ fun IdsTextField(
         isError = hasError,
         label = label?.let { { Text(it) } },
         placeholder = placeholder?.let { { Text(it) } },
-        supportingText = supporting?.let { { Text(it) } },
+        supportingText = supporting?.let { { Text(it, modifier = Modifier.heightIn(min = idsComponentTokens().textField.supportingTextMinHeight)) } },
         leadingIcon = leadingIcon?.let { icon ->
             { Icon(icon, contentDescription = leadingContentDescription) }
         },
