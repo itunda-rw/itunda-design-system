@@ -3,6 +3,9 @@ package rw.itunda.core.designsystem.components
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.LiveRegionMode
+import androidx.compose.ui.semantics.liveRegion
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Snackbar
 import rw.itunda.core.designsystem.theme.Ids
@@ -21,6 +24,7 @@ fun IdsSnackbarHost(
 ) {
     SnackbarHost(hostState = hostState, modifier = modifier) { data ->
         Snackbar(
+            modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
             snackbarData = data,
             containerColor = Ids.colors.surface,
             contentColor = Ids.colors.textPrimary,
