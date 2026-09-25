@@ -34,9 +34,10 @@ fun IdsTheme(
     variant: IdsThemeVariant = IdsThemeVariant.Core,
     content: @Composable () -> Unit
 ) {
-    val colorScheme = if (darkTheme) idsDarkColorScheme(semanticColors) else idsLightColorScheme(semanticColors)
+    val overrides = variant.overrides()
     val baseSemanticColors = if (darkTheme) IdsDarkSemanticColors else IdsLightSemanticColors
-    val semanticColors = baseSemanticColors.withOverrides(variant.overrides())
+    val semanticColors = baseSemanticColors.withOverrides(overrides)
+    val colorScheme = if (darkTheme) idsDarkColorScheme(semanticColors) else idsLightColorScheme(semanticColors)
 
     CompositionLocalProvider(
         LocalIdsSemanticColors provides semanticColors,
