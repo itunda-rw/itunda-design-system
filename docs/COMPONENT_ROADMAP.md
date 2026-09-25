@@ -20,8 +20,8 @@
 
 ## Next wave
 - Menu / Dropdown — Refined (long-list scrolling + selected state)
-- Skeleton
-- Tooltip
+- Skeleton — Added
+- Tooltip — Added
 - Date / time selection patterns
 - Component-level token layer — Implemented (Button pilot)
 - Theme overrides for client / business / developer surfaces — Architecture added (docs/THEME_ARCHITECTURE.md)
