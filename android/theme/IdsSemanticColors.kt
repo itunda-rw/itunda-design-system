@@ -83,16 +83,12 @@ val IdsLightSemanticColors = IdsSemanticColors(
     // --toss-grey-500 and iOS's IDS.Colors.textTertiary. IdsColors.Gray500/Grey500,
     // the raw primitive used for non-text roles, is deliberately left untouched.
     textTertiary = Color(0xFF636E7C),
-    // Brand rebranded blue -> indigo (2026-08-22, direct user identity work: petal-
-    // shape mark + indigo, see project_itunda_brand_identity.md and web's
-    // packages/design-tokens/tokens.css --itunda-indigo for the full derivation note).
-    // Not invented: same OKLCH hue-rotation technique Toss's own eng blog documents
-    // (toss.tech/article/tds-color-system-update) applied to this exact real anchor --
-    // hold L/C of the old 0xFF3182F6, rotate hue to 280deg, clamp chroma to gamut.
-    // WCAG-verified: white-on-brand 3.85:1 (was 3.71:1, both clear the real 3:1
-    // AA-large/UI-component bar this role is held to).
-    brand = Color(0xFF7472F4),
-    textBrand = Color(0xFF7472F4),
+    // Itunda brand color: blue (2026-08-22, direct user identity work: The brand token is intentionally Itunda-owned rather than named after or copied
+    // from another product. Keep the value aligned with the cross-platform token
+    // source: #1F78FF. Active/pressed states are separate semantic roles so a brand
+    // color change does not require rewriting component code.
+    brand = Color(0xFF1F78FF),
+    textBrand = Color(0xFF1769D8),
     divider = Color(0xFFE5E8EB),
     chip = Color(0xFFF2F4F6),
     pressed = Color(0xFFEEF0FF),
@@ -129,12 +125,11 @@ val IdsDarkSemanticColors = IdsSemanticColors(
     // far below 4.5:1. Lightened to 0xFF848A96 (5.15:1 / 4.67:1). Matches the same-day
     // fix on web/iOS.
     textTertiary = Color(0xFF848A96),
-    // Same rebrand as light mode's brand field above -- rotated from the old
-    // 0xFF3485FA (Toss's real adaptive-dark blue) to indigo at the same hue.
-    // WCAG-verified: brand-vs-background 4.82:1 (was 5.00:1 against 0xFF17171C),
-    // both comfortably clear 4.5:1 AA-normal-text.
-    brand = Color(0xFF7675F8),
-    textBrand = Color(0xFF7675F8),
+    // The dark-theme brand keeps the same Itunda blue family while increasing lightness
+    // for contrast against the dark background. Text uses the darker light-mode role
+    // only in light theme; dark textBrand stays bright enough for AA.
+    brand = Color(0xFF4F91FF),
+    textBrand = Color(0xFF4F91FF),
     divider = Color(0xFF3C3C47),
     chip = Color(0xFF2C2C35),
     pressed = Color(0xFF2B2C52),
