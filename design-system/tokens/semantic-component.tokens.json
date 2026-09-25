@@ -1,0 +1,87 @@
+{
+  "$comment": "Machine-readable Itunda semantic/component token registry. Primitive values remain canonical in tokens.json; this registry maps stable meaning to component behavior.",
+  "schemaVersion": 1,
+  "tokens": [
+    {
+      "category": "Color",
+      "styleElement": "Color",
+      "level": "Semantic",
+      "name": "brand",
+      "type": "color",
+      "value": "blue-500",
+      "description": "Primary Itunda action and identity color."
+    },
+    {
+      "category": "Color",
+      "styleElement": "Color",
+      "level": "Semantic",
+      "name": "on-brand",
+      "type": "color",
+      "value": "white",
+      "description": "Content placed on the brand surface."
+    },
+    {
+      "category": "Color",
+      "styleElement": "Color",
+      "level": "Semantic",
+      "name": "surface-soft",
+      "type": "color",
+      "value": "grey-100",
+      "description": "Low-emphasis container surface."
+    },
+    {
+      "category": "Color",
+      "styleElement": "Color",
+      "level": "Semantic",
+      "name": "text-primary",
+      "type": "color",
+      "value": "grey-900",
+      "description": "Primary readable content."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Button",
+      "level": "Component",
+      "name": "height-large",
+      "type": "dimension",
+      "value": "56dp",
+      "description": "Large button minimum height."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Button",
+      "level": "Component",
+      "name": "height-medium",
+      "type": "dimension",
+      "value": "48dp",
+      "description": "Medium button minimum height."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Button",
+      "level": "Component",
+      "name": "height-small",
+      "type": "dimension",
+      "value": "36dp",
+      "description": "Small button minimum height."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Button",
+      "level": "Component",
+      "name": "radius-large",
+      "type": "dimension",
+      "value": "12dp",
+      "description": "Large and medium button corner radius."
+    },
+    {
+      "category": "Component",
+      "styleElement": "Button",
+      "level": "Component",
+      "name": "radius-small",
+      "type": "dimension",
+      "value": "10dp",
+      "description": "Small button corner radius."
+    }
+  ]
+}
