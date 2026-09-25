@@ -34,6 +34,5 @@ val IdsDefaultComponentTokens = IdsComponentTokens()
 
 val LocalIdsComponentTokens = staticCompositionLocalOf { IdsDefaultComponentTokens }
 
-val IdsComponentTokens.current: IdsComponentTokens
-    @Composable
-    get() = LocalIdsComponentTokens.current
+@Composable
+fun idsComponentTokens(): IdsComponentTokens = LocalIdsComponentTokens.current
