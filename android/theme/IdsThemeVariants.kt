@@ -22,6 +22,7 @@ data class IdsThemeOverrides(
     val brand: Color? = null,
     val onBrand: Color? = null,
     val textBrand: Color? = null,
+    val componentTokens: IdsComponentTokens = IdsDefaultComponentTokens,
 )
 
 fun IdsThemeVariant.overrides(): IdsThemeOverrides = when (this) {
