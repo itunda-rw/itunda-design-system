@@ -33,3 +33,17 @@ Current machine-readable registry: `design-system/tokens/semantic-component.toke
 ## Registry validation
 
 `design-system/tokens/tokens.json` remains the canonical primitive source. `design-system/tokens/semantic-component.tokens.json` is the machine-readable semantic/component registry. CI validates both JSON documents before generating platform primitives, so malformed token metadata fails early rather than reaching generated outputs. This keeps the token model human- and machine-readable while preserving a clear source-of-truth boundary, consistent with TDS's documented token architecture. urlToss color/token systemhttps://toss.tech/article/43385
+
+
+## Theme governance
+
+Theme overrides are a controlled extension point, not a second token source.
+
+- Primitive values remain centralized.
+- Semantic roles define meaning.
+- Component tokens define reusable component geometry and behavior.
+- Product themes may override semantic and component values without copying the foundation.
+- New overrides should be justified by a recurring product requirement.
+- Theme changes should preserve accessibility and worst-case behavior.
+
+This structure is intended to let Client, Business, and Developer surfaces share one IDS foundation while allowing deliberate product-level variation.
