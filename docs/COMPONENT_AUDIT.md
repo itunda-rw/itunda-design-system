@@ -23,6 +23,7 @@ TDS documents components from the large structure down to detailed states, then 
 
 ### 1. Dialog
 **Implemented**
+- Reusable action labels are caller-owned/localization-ready.
 - Action labels are now caller-owned; IDS no longer embeds English `Confirm` / `Cancel` defaults.
 
 **Gaps to close**
@@ -44,6 +45,9 @@ TDS documents components from the large structure down to detailed states, then 
 - Separate modal and non-modal contracts explicitly.
 
 ### 3. Button
+**Implemented**
+- Shared button geometry is routed through component tokens.
+
 **Gaps to close**
 - Replace raw component color derivations with component-level semantic tokens.
 - Document loading, focus, long-label and large-text cases.
@@ -51,6 +55,10 @@ TDS documents components from the large structure down to detailed states, then 
 - Ensure icon-only buttons always require meaningful accessible labels.
 
 ### 4. TextField / SearchField
+**Implemented**
+- Search accessibility labels are caller-owned.
+- TextField supporting/error text uses a component token for minimum height.
+
 **Gaps to close**
 - Keep all user-facing labels and accessibility descriptions caller-owned/localized.
 - Document error/supporting-text semantics.
@@ -67,6 +75,9 @@ TDS documents components from the large structure down to detailed states, then 
 - Audit implementation imports.
 
 ### 6. Feedback states
+**Implemented**
+- Loading state exposes its status through semantics.
+
 **Gaps to close**
 - Remove English defaults from reusable copy APIs.
 - Define loading announcement semantics.
