@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import rw.itunda.core.designsystem.theme.Ids
 import rw.itunda.core.designsystem.theme.IdsColors
 import rw.itunda.core.designsystem.theme.IdsTypography
+import rw.itunda.core.designsystem.theme.idsComponentTokens
 
 /**
  * Real fix, 2026-07-21, grounded in Toss's own published account of this exact
@@ -78,10 +79,11 @@ fun IdsButton(
     // keyboard" look passes one in.
     shape: androidx.compose.ui.graphics.Shape? = null,
 ) {
+    val componentTokens = idsComponentTokens().button
     val heightDp = when (size) {
-        IdsButtonSize.Large -> 56.dp
-        IdsButtonSize.Medium -> 48.dp
-        IdsButtonSize.Small -> 36.dp
+        IdsButtonSize.Large -> componentTokens.largeHeight
+        IdsButtonSize.Medium -> componentTokens.mediumHeight
+        IdsButtonSize.Small -> componentTokens.smallHeight
     }
     val horizontalPadding = when (size) {
         IdsButtonSize.Large, IdsButtonSize.Medium -> ButtonDefaults.ContentPadding
@@ -122,7 +124,7 @@ fun IdsButton(
             .then(widthModifier)
             .scale(pressScale)
             .height(heightDp),
-        shape = shape ?: RoundedCornerShape(if (size == IdsButtonSize.Small) 10.dp else 12.dp),
+        shape = shape ?: RoundedCornerShape(if (size == IdsButtonSize.Small) componentTokens.smallRadius else componentTokens.largeRadius),
         contentPadding = horizontalPadding,
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor,
@@ -132,8 +134,8 @@ fun IdsButton(
         )
     ) {
         if (icon != null) {
-            Icon(icon, contentDescription = null, modifier = Modifier.size(if (size == IdsButtonSize.Small) 14.dp else 18.dp))
-            androidx.compose.foundation.layout.Spacer(modifier = Modifier.size(6.dp))
+            Icon(icon, contentDescription = null, modifier = Modifier.size(if (size == IdsButtonSize.Small) componentTokens.iconSmallSize else componentTokens.iconSize))
+            androidx.compose.foundation.layout.Spacer(modifier = Modifier.size(componentTokens.iconGap))
         }
         Text(
             text = text,
