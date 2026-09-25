@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Itunda Design System — tokens, components, accessibility and interaction patterns for the Itunda ecosystem.">
+<title>Itunda Design System</title><link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="#top"><span class="logo">i</span><span>Itunda Design System</span></a><nav><a href="#foundations">Foundations</a><a href="#components">Components</a><a href="#accessibility">Accessibility</a></nav><button id="theme" class="icon-btn" aria-label="Toggle dark mode">◐</button></header>
+<main id="top">
+<section class="hero"><div class="eyebrow">IDS · OPEN SOURCE</div><h1>One system.<br><span>Every Itunda surface.</span></h1><p class="hero-copy">A shared design language for Client, Business, Developer and future platform products — built around tokens, reusable components and accessibility.</p><div class="actions"><a class="btn primary" href="#components">Explore components</a><a class="btn secondary" href="https://github.com/itunda-rw/itunda-design-system">View source ↗</a></div></section>
+<section id="foundations" class="section"><div class="section-head"><div><div class="eyebrow">FOUNDATIONS</div><h2>Designed from the token up.</h2></div><p>Primitive → semantic → component tokens keep the visual language consistent while allowing product themes to evolve.</p></div>
+<div class="token-grid"><article class="card"><h3>Brand</h3><div class="swatch brand-swatch"></div><code>#1F78FF</code><p>Primary Itunda blue</p></article><article class="card"><h3>Surface</h3><div class="swatch surface-swatch"></div><code>#FFFFFF</code><p>Light surface</p></article><article class="card"><h3>Text</h3><div class="swatch text-swatch"></div><code>#191F28</code><p>Primary text</p></article><article class="card"><h3>Danger</h3><div class="swatch danger-swatch"></div><code>#F04452</code><p>Error and destructive state</p></article></div>
+<div class="scale"><div><span>Spacing</span><b>4 · 8 · 12 · 16 · 24 · 32 · 48</b></div><div><span>Radius</span><b>10 · 12 · 16</b></div><div><span>Type</span><b>Display · Heading · Body · Caption</b></div></div>
+</section>
+<section id="components" class="section alt"><div class="section-head"><div><div class="eyebrow">COMPONENTS</div><h2>Real product primitives.</h2></div><p>Each component is designed to handle states, localization, large text, dark mode and accessible interaction.</p></div>
+<div class="showcase-grid">
+<article class="demo card"><div class="demo-label">Button</div><div class="button-row"><button class="btn primary">Continue</button><button class="btn secondary">Cancel</button><button class="btn danger">Delete</button></div><div class="state-row"><span class="pill">Default</span><span class="pill selected">Selected</span><span class="pill disabled">Disabled</span></div></article>
+<article class="demo card"><div class="demo-label">Text field</div><label class="field"><span>Email</span><input value="hello@itunda.rw" aria-label="Email"></label><small>Supporting text is reserved for useful guidance.</small></article>
+<article class="demo card"><div class="demo-label">Navigation</div><div class="nav-demo"><span class="nav-active">⌂<b>Home</b></span><span>◫<b>Activity</b></span><span>◎<b>Profile</b></span></div></article>
+<article class="demo card"><div class="demo-label">Feedback</div><div class="notice"><strong>Payment complete</strong><span>Your transfer was sent successfully.</span></div><div class="snackbar">Saved successfully <button>Undo</button></div></article>
+<article class="demo card"><div class="demo-label">Selection</div><div class="menu"><div>Rwanda <span>✓</span></div><div>Kenya</div><div>Uganda</div></div></article>
+<article class="demo card"><div class="demo-label">Sheet</div><div class="sheet"><div class="handle"></div><h3>Choose an option</h3><p>Bottom sheets keep actions close and support keyboard, screen-reader and non-gesture dismissal.</p><button class="btn primary full">Done</button></div></article>
+</div></section>
+<section id="accessibility" class="section"><div class="section-head"><div><div class="eyebrow">QUALITY</div><h2>Accessibility is part of the component.</h2></div><p>IDS treats accessible names, focus, contrast, localization, reduced motion and worst-case content as system contracts.</p></div><div class="quality-grid"><div class="quality"><b>01</b><h3>Semantics</h3><p>Meaningful roles and accessible names are owned by the component and caller where content is product-specific.</p></div><div class="quality"><b>02</b><h3>Resilience</h3><p>Long Korean, English and Kinyarwanda content, large text and narrow screens are first-class cases.</p></div><div class="quality"><b>03</b><h3>Motion</h3><p>State changes remain understandable when the platform requests reduced motion.</p></div><div class="quality"><b>04</b><h3>Theming</h3><p>Client, Business and Developer surfaces share the same foundation without copying the system.</p></div></div></section>
+<footer><span>Itunda Design System</span><span>Built for the Itunda ecosystem · Open source</span></footer>
+</main><script src="./app.js"></script></body></html>
