@@ -23,10 +23,10 @@
 - Skeleton
 - Tooltip
 - Date / time selection patterns
-- Component-level token layer
+- Component-level token layer — Next
 - Theme overrides for client / business / developer surfaces
 - Generated iOS / Flutter / React Native outputs
-- Full accessibility and localization audit
+- Full accessibility and localization audit — In progress (`docs/COMPONENT_AUDIT.md`)
 - Component examples and worst-case playgrounds
 
 ## Quality gate
