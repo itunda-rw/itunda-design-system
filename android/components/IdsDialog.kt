@@ -12,6 +12,9 @@ import rw.itunda.core.designsystem.theme.Ids
  *
  * Keep dialogs short and decision-oriented. For complex content prefer a bottom
  * sheet or a dedicated screen rather than creating a second custom modal pattern.
+ *
+ * Action labels are caller-owned so reusable IDS components never embed
+ * non-localized product copy.
  */
 @Composable
 fun IdsDialog(
@@ -19,8 +22,8 @@ fun IdsDialog(
     onDismissRequest: () -> Unit,
     modifier: Modifier = Modifier,
     message: String? = null,
-    confirmLabel: String = "Confirm",
-    dismissLabel: String? = "Cancel",
+    confirmLabel: String,
+    dismissLabel: String? = null,
     onConfirm: () -> Unit,
     confirmEnabled: Boolean = true,
 ) {
