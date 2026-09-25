@@ -19,11 +19,11 @@
 | Loading / Empty / Error | Added |
 
 ## Next wave
-- Menu / Dropdown — Added
+- Menu / Dropdown — Refined (long-list scrolling + selected state)
 - Skeleton
 - Tooltip
 - Date / time selection patterns
-- Component-level token layer — Next
+- Component-level token layer — Implemented (Button pilot)
 - Theme overrides for client / business / developer surfaces
 - Generated iOS / Flutter / React Native outputs
 - Full accessibility and localization audit — In progress (`docs/COMPONENT_AUDIT.md`)
