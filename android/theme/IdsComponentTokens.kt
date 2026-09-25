@@ -1,6 +1,8 @@
 package rw.itunda.core.designsystem.theme
 
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -29,3 +31,9 @@ data class IdsComponentTokens(
 )
 
 val IdsDefaultComponentTokens = IdsComponentTokens()
+
+val LocalIdsComponentTokens = staticCompositionLocalOf { IdsDefaultComponentTokens }
+
+val IdsComponentTokens.current: IdsComponentTokens
+    @Composable
+    get() = LocalIdsComponentTokens.current
