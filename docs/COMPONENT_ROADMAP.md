@@ -19,7 +19,7 @@
 | Loading / Empty / Error | Added |
 
 ## Next wave
-- Menu / Dropdown
+- Menu / Dropdown — Added
 - Skeleton
 - Tooltip
 - Date / time selection patterns
