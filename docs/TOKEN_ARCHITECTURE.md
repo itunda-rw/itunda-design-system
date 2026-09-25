@@ -28,4 +28,4 @@ Component tokens prevent components from reaching directly into unrelated primit
 ## Source of truth
 design-system/tokens/tokens.json is the primitive source for generated platform values. Hand-authored semantic mappings remain explicit so their intent is reviewable.
 
-Long-term target: machine-readable metadata for category, style element, level, name, type, value/reference, and description.
+Current machine-readable registry: `design-system/tokens/semantic-component.tokens.json`. It records semantic intent and component contracts using category, style element, level, name, type, value/reference, and description. Primitive values remain canonical in `tokens.json`.
