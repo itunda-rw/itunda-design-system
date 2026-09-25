@@ -17,5 +17,7 @@ jobs:
         run: node -e "JSON.parse(require('fs').readFileSync('design-system/tokens/tokens.json','utf8')); console.log('tokens.json: valid')"
       - name: Regenerate Android primitives
         run: node packages/design-tokens/generate-tokens.js
+      - name: Regenerate Web primitives
+        run: node packages/design-tokens/generate-web-primitives.js
       - name: Fail on generated drift
-        run: git diff --exit-code -- design-system/android/theme/IdsColors.kt
+        run: git diff --exit-code -- design-system/android/theme/IdsColors.kt design-system/web/ids-primitives.css
