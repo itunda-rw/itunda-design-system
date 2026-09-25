@@ -23,11 +23,11 @@
 - Skeleton — Added
 - Tooltip — Added
 - Date / time selection patterns
-- Component-level token layer — Implemented (Button pilot)
+- Component-level token layer — Expanded (Button + Card)
 - Theme overrides for client / business / developer surfaces — Architecture added (docs/THEME_ARCHITECTURE.md)
 - Generated iOS / Flutter / React Native outputs
 - Full accessibility and localization audit — In progress (`docs/COMPONENT_AUDIT.md`)
-- Component examples and worst-case playgrounds
+- Component API strategy — Documented (flat + compound)\n- Component examples and worst-case playgrounds
 
 ## Quality gate
 A component becomes stable only after API, states, accessibility, theme, localization, large-text, motion, documentation, and worst-case usage are defined.
