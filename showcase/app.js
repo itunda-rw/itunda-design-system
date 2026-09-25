@@ -1,0 +1,1 @@
+const button=document.getElementById("theme");const saved=localStorage.getItem("ids-theme");if(saved==="dark")document.body.classList.add("dark");button.addEventListener("click",()=>{document.body.classList.toggle("dark");localStorage.setItem("ids-theme",document.body.classList.contains("dark")?"dark":"light")});
