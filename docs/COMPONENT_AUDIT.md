@@ -33,8 +33,11 @@ TDS documents components from the large structure down to detailed states, then 
 - Define reduced-motion behavior.
 
 ### 2. BottomSheet
+**Implemented**
+- Sheet description and heading semantics are exposed.
+- Dismiss action is exposed to assistive technologies when provided.
+
 **Gaps to close**
-- Define accessibility semantics for the drag handle and sheet state.
 - Define focus entry/exit behavior for modal variants.
 - Document nested scrolling/content overflow.
 - Define reduced-motion behavior for detent transitions.
@@ -55,11 +58,13 @@ TDS documents components from the large structure down to detailed states, then 
 - Define clear-button accessibility and focus behavior.
 
 ### 5. Snackbar
+**Implemented**
+- Snackbar content is exposed as a polite live region.
+
 **Gaps to close**
-- Define accessibility announcement behavior.
 - Define action semantics and timeout expectations.
 - Document when a snackbar is insufficient because information must persist.
-- Remove unused implementation imports.
+- Audit implementation imports.
 
 ### 6. Feedback states
 **Gaps to close**
@@ -70,14 +75,12 @@ TDS documents components from the large structure down to detailed states, then 
 
 ## Next implementation wave
 
-1. Component-level semantic tokens.
-2. Dialog and BottomSheet accessibility contracts.
-3. Skeleton.
-4. Tooltip.
-5. Motion/easing token contract with reduced-motion rules.
-6. Client / Business / Developer derived themes.
-7. Worst-case component playground.
-8. Automated accessibility/API checks.
+1. Dialog focus/dismissal contract.
+2. BottomSheet focus, nested-scroll and reduced-motion contract.
+3. Motion/easing implementation with reduced-motion behavior.
+4. Client / Business / Developer derived theme values.
+5. Worst-case component playground.
+6. Automated accessibility/API checks.
 
 ## Definition of done
 
