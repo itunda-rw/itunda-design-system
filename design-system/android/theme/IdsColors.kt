@@ -3,24 +3,18 @@ package rw.itunda.core.designsystem.theme
 import androidx.compose.ui.graphics.Color
 
 /**
- * Toss-Style Color System
- * Focuses on high-contrast blues, clean grays, and semantic clarity.
+ * Itunda Design System primitive color scale.
  *
- * Full numbered scale corrected/completed 2026-07-13 against Toss's own official,
- * directly-fetched TDS docs (tossmini-docs.toss.im/tds-mobile/foundation/colors) --
- * previously unverified against a real source (docs/ARCHITECTURE.md's own §6 item 6
- * had explicitly noted TDS's non-color token surface was never confirmed sourced;
- * this closes that gap for typography too, see IdsTypography.kt). Found a real,
- * live mislabeling this pass: the old `Blue600`/`Blue100` constants held the real
- * TDS's blue700/blue50 values respectively, not blue600/blue100 -- both platforms
- * (this file and ios/.../IdsTheme.swift) had independently drifted the same way,
- * so it was internally consistent, just numbered wrong relative to the real scale.
- * Kept the old names as deprecated aliases (same values) rather than a silent
- * rename, since call sites reference them by name; new code should use the
- * correctly-numbered constants below.
+ * The numbered primitives are kept separate from semantic roles so components
+ * depend on meaning (brand, text, surface, danger, etc.) rather than raw values.
+ * The canonical primitive source is design-system/tokens/tokens.json.
+ *
+ * Some primitive values were benchmarked against publicly documented TDS colors
+ * during IDS development, but these tokens are maintained as Itunda-owned
+ * primitives and must not be treated as a copy of another product's identity.
  */
 object IdsColors {
-    // GENERATED:BEGIN -- do not hand-edit; regenerate with packages/design-tokens/generate-tokens.js from tokens.json (see doc comment above).
+    // GENERATED:BEGIN -- do not hand-edit; regenerate with packages/design-tokens/generate-tokens.js.
     val Grey50 = Color(0xFFF9FAFB)
     val Grey100 = Color(0xFFF2F4F6)
     val Grey200 = Color(0xFFE5E8EB)
@@ -58,15 +52,16 @@ object IdsColors {
     val White = Color(0xFFFFFFFF)
     // GENERATED:END
 
-    // Semantic aliases used across existing screens -- kept for source compatibility.
-    val Gray900 = Grey900 // Primary text
-    val Gray800 = Grey800 // Secondary text
-    val Gray700 = Grey700 // Tertiary text
-    val Gray600 = Grey600 // Placeholder
+    // Semantic aliases retained for source compatibility. New components should
+    // prefer Ids.colors semantic tokens instead of primitive/numbered colors.
+    val Gray900 = Grey900
+    val Gray800 = Grey800
+    val Gray700 = Grey700
+    val Gray600 = Grey600
     val Gray500 = Grey500
-    val Gray400 = Grey400 // Disabled elements
-    val Gray300 = Grey300 // Borders
-    val Gray200 = Grey200 // Divider
-    val Gray100 = Grey100 // Background (Cards)
-    val Gray50 = Grey50   // Background (Screen)
+    val Gray400 = Grey400
+    val Gray300 = Grey300
+    val Gray200 = Grey200
+    val Gray100 = Grey100
+    val Gray50 = Grey50
 }
