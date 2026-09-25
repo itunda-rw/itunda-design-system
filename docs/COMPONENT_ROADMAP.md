@@ -23,11 +23,11 @@
 - Skeleton — Added
 - Tooltip — Added
 - Date / time selection patterns
-- Component-level token layer — Expanded (Button + Card)
-- Theme overrides for client / business / developer surfaces — Architecture added (docs/THEME_ARCHITECTURE.md)
+- Component-level token layer — Expanded (Button + Card + BottomSheet + NavigationBar + TextField; registry validated in CI)
+- Theme overrides for client / business / developer surfaces — Implemented and applied by `IdsTheme`
 - Generated iOS / Flutter / React Native outputs
-- Full accessibility and localization audit — In progress (`docs/COMPONENT_AUDIT.md`)
-- Component API strategy — Documented (flat + compound)\n- Component examples and worst-case playgrounds — Contract matrix added (`docs/WORST_CASE_MATRIX.md`)
+- Full accessibility and localization audit — In progress (`docs/COMPONENT_AUDIT.md`); overlay dismissal/semantics and transient announcements implemented
+- Component API strategy — Documented (flat + compound)\n- Component examples and worst-case playgrounds — Contract matrix added (`docs/WORST_CASE_MATRIX.md`); executable playgrounds remain
 
 ## Guide coverage
 
