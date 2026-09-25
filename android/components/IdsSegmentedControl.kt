@@ -41,7 +41,7 @@ fun IdsSegmentedControl(
             ) {
                 Text(
                     text = label,
-                    color = if (isSelected) Ids.colors.textPrimary else Ids.colors.textPrimary,
+                    color = if (isSelected) Ids.colors.onBrand else Ids.colors.textPrimary,
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
                 )
             }
