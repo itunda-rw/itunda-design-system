@@ -44,7 +44,15 @@ Every stable component should have:
 - localization/large-text notes
 - do/don't guidance
 
-## 8. Adoption
+## 8. Verification
+Check both implementation and rendered behavior where possible:
+- generated token outputs are synchronized
+- component registry entries exist for tokenized components
+- accessibility semantics are present for interactive/overlay components
+- localization-owned labels contain no reusable English defaults
+- worst-case matrix coverage is documented
+
+## 9. Adoption
 Prefer one shared component over repeated product-local implementations. If teams repeatedly need an escape hatch, reconsider the component contract instead of multiplying custom variants.
 
 This rubric reflects patterns described in Toss's published TDS guidance: full-option examples, explicit state/detail specifications, accessibility guidance, larger-text behavior, dark mode, and position rules for overlays. urlToss TDS guide methodologyhttps://toss.tech/article/toss-design-system-guide
