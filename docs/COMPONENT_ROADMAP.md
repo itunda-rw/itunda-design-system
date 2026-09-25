@@ -4,9 +4,9 @@
 | Component | Status |
 | --- | --- |
 | Button | Ready |
-| TextField | Added |
+| TextField | Refined |
 | SearchField | Added |
-| ListRow | Added |
+| ListRow | Refined |
 | Card | Ready |
 | BottomSheet | Ready |
 | Dialog | Added |
@@ -23,12 +23,13 @@
 - Skeleton
 - Tooltip
 - Date / time selection patterns
-- Cross-platform component tokens
-- Generated Web / Android / iOS outputs
-- CI token validation
-- Full accessibility + localization audit
+- Component-level token layer
+- Theme overrides for client / business / developer surfaces
+- Generated iOS / Flutter / React Native outputs
+- Full accessibility and localization audit
+- Component examples and worst-case playgrounds
 
 ## Quality gate
 A component becomes stable only after API, states, accessibility, theme, localization, large-text, motion, documentation, and worst-case usage are defined.
 
-See `docs/QUALITY_RUBRIC.md`.
+TDS explicitly treats long text, dark mode, screen-reader behavior, reduced motion, and overlay positioning as component-guide concerns rather than product-by-product decisions. IDS uses the same quality gate while keeping Itunda's own blue brand and component APIs. urlToss component guide methodologyhttps://toss.tech/article/toss-design-system-guide
