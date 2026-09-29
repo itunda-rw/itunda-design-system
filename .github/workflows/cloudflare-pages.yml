@@ -36,3 +36,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: pages deploy showcase --project-name=itunda-designs
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+# Cloudflare Pages project bootstrap + deployment verification
