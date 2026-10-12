@@ -3,6 +3,8 @@ name: Deploy Itunda Design System to Cloudflare Pages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -10,7 +12,31 @@ permissions:
   deployments: write
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Validate IDS showcase
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Verify showcase token snapshot matches canonical source
+        run: cmp design-system/tokens/tokens.css showcase/ids-tokens.css
+
+      - name: Validate showcase files and interactions
+        run: |
+          test -s showcase/index.html
+          test -s showcase/styles.css
+          test -s showcase/app.js
+          grep -q 'href="./styles.css"' showcase/index.html
+          grep -q 'src="./app.js"' showcase/index.html
+          grep -q '@import url("./ids-tokens.css")' showcase/styles.css
+          grep -q 'prefers-reduced-motion' showcase/styles.css
+          grep -q 'aria-live="polite"' showcase/index.html
+          node --check showcase/app.js
+
   deploy:
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    needs: [validate]
     runs-on: ubuntu-latest
     name: Deploy Itunda Design System showcase
     steps:
