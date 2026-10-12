@@ -27,5 +27,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Check generated Android palette
+        run: node scripts/generate-design-tokens.mjs --check
       - name: Validate token contract
         run: node scripts/validate-design-tokens.mjs
