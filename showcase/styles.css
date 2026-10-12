@@ -1,4 +1,4 @@
-@import url("../design-system/tokens/tokens.css");
+@import url("./ids-tokens.css");
 
 :root {
   --brand: var(--itunda-indigo, #7472f4);
