@@ -45,11 +45,11 @@ const generated = [
   ...scales.map((scaleName) => required
     .filter(({ name }) => name.startsWith(scaleName[0].toUpperCase() + scaleName.slice(1)))
     .map(({ name, value }) => `    val ${name} = Color(0xFF${value.toUpperCase()})`)
-    .join("\\n")),
+    .join("\n")),
   required.filter(({ name }) => name === "Green500" || name === "White")
     .map(({ name, value }) => `    val ${name} = Color(0xFF${value.toUpperCase()})`)
-    .join("\\n"),
-].join("\\n\\n");
+    .join("\n"),
+].join("\n\n");
 const start = target.indexOf(beginMarker);
 const end = target.indexOf(endMarker);
 if (end < start) throw new Error("Generated region markers are reversed");
