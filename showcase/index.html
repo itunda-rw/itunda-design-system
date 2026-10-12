@@ -1,27 +1,120 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Itunda Design System — tokens, components, accessibility and interaction patterns for the Itunda ecosystem.">
-<title>Itunda Design System</title><link rel="stylesheet" href="./styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#7472F4">
+<meta name="description" content="The Itunda Design System: shared tokens, interaction patterns, accessibility rules and implementation guidance across Itunda products.">
+<title>Itunda Design System — Foundations & Components</title>
+<link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-<header class="topbar"><a class="brand" href="#top"><span class="logo">i</span><span>Itunda Design System</span></a><nav><a href="#foundations">Foundations</a><a href="#components">Components</a><a href="#accessibility">Accessibility</a></nav><button id="theme" class="icon-btn" aria-label="Toggle dark mode">◐</button></header>
-<main id="top">
-<section class="hero"><div class="eyebrow">IDS · OPEN SOURCE</div><h1>One system.<br><span>Every Itunda surface.</span></h1><p class="hero-copy">A shared design language for Client, Business, Developer and future platform products — built around tokens, reusable components and accessibility.</p><div class="actions"><a class="btn primary" href="#components">Explore components</a><a class="btn secondary" href="https://github.com/itunda-rw/itunda-design-system">View source ↗</a></div></section>
-<section id="foundations" class="section"><div class="section-head"><div><div class="eyebrow">FOUNDATIONS</div><h2>Designed from the token up.</h2></div><p>Primitive → semantic → component tokens keep the visual language consistent while allowing product themes to evolve.</p></div>
-<div class="token-grid"><article class="card"><h3>Brand</h3><div class="swatch brand-swatch"></div><code>#7472F4</code><p>Primary Itunda indigo</p></article><article class="card"><h3>Surface</h3><div class="swatch surface-swatch"></div><code>#FFFFFF</code><p>Light surface</p></article><article class="card"><h3>Text</h3><div class="swatch text-swatch"></div><code>#191F28</code><p>Primary text</p></article><article class="card"><h3>Danger</h3><div class="swatch danger-swatch"></div><code>#F04452</code><p>Error and destructive state</p></article></div>
-<div class="scale"><div><span>Spacing</span><b>4 · 8 · 12 · 16 · 24 · 32 · 48</b></div><div><span>Radius</span><b>10 · 12 · 16</b></div><div><span>Type</span><b>Display · Heading · Body · Caption</b></div></div>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Itunda Design System home">
+    <span class="brand-name">itunda <span>design system</span></span>
+  </a>
+  <nav aria-label="Main navigation">
+    <a href="#foundations">Foundations</a><a href="#components">Components</a><a href="#accessibility">Quality</a>
+  </nav>
+  <button id="theme" class="theme-button" type="button" aria-label="Change color theme">Theme: system</button>
+</header>
+<main id="main">
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="status-dot"></span> ITUNDA DESIGN SYSTEM <span class="eyebrow-separator">/</span> OPEN SOURCE</div>
+    <h1>One thoughtful system.<br><span>Every Itunda experience.</span></h1>
+    <p class="lead">Shared foundations for Itunda Client, Business, Developers and the products we build next. Familiar patterns, clear decisions, and one Itunda identity across every surface.</p>
+    <div class="actions"><a class="button primary" href="#components">Explore components <span aria-hidden="true">↘</span></a><a class="button quiet" href="https://github.com/itunda-rw/itunda-design-system">Browse source <span aria-hidden="true">↗</span></a></div>
+    <div class="hero-meta"><span><i></i> Web foundations</span><span><i></i> Android theme</span><span><i></i> iOS theme</span></div>
+  </div>
+  <aside class="preview-card" aria-label="Live theme preview">
+    <div class="preview-top"><span class="preview-label">LIVE PREVIEW</span><span class="preview-state"><span></span> Interactive</span></div>
+    <div class="balance-label">Available balance</div>
+    <div class="balance">RWF 248,500<span>.00</span></div>
+    <div class="balance-foot"><span class="positive">↗ 8.4%</span><span>compared with last month</span></div>
+    <div class="preview-divider"></div>
+    <div class="preview-action-row"><div class="preview-icon">↗</div><div><strong>Send money</strong><small>To a contact or mobile wallet</small></div><span class="action-arrow">→</span></div>
+    <div class="preview-action-row"><div class="preview-icon soft">▦</div><div><strong>Pay a bill</strong><small>Utilities, internet and more</small></div><span class="action-arrow">→</span></div>
+    <p class="preview-note">Illustrative interface preview · not a live account</p>
+  </aside>
 </section>
-<section id="components" class="section alt"><div class="section-head"><div><div class="eyebrow">COMPONENTS</div><h2>Real product primitives.</h2></div><p>Each component is designed to handle states, localization, large text, dark mode and accessible interaction.</p></div>
-<div class="showcase-grid">
-<article class="demo card"><div class="demo-label">Button</div><div class="button-row"><button class="btn primary">Continue</button><button class="btn secondary">Cancel</button><button class="btn danger">Delete</button></div><div class="state-row"><span class="pill">Default</span><span class="pill selected">Selected</span><span class="pill disabled">Disabled</span></div></article>
-<article class="demo card"><div class="demo-label">Text field</div><label class="field"><span>Email</span><input value="hello@itunda.rw" aria-label="Email"></label><small>Supporting text is reserved for useful guidance.</small></article>
-<article class="demo card"><div class="demo-label">Navigation</div><div class="nav-demo"><span class="nav-active">⌂<b>Home</b></span><span>◫<b>Activity</b></span><span>◎<b>Profile</b></span></div></article>
-<article class="demo card"><div class="demo-label">Feedback</div><div class="notice"><strong>Payment complete</strong><span>Your transfer was sent successfully.</span></div><div class="snackbar">Saved successfully <button>Undo</button></div></article>
-<article class="demo card"><div class="demo-label">Selection</div><div class="menu"><div>Rwanda <span>✓</span></div><div>Kenya</div><div>Uganda</div></div></article>
-<article class="demo card"><div class="demo-label">Sheet</div><div class="sheet"><div class="handle"></div><h3>Choose an option</h3><p>Bottom sheets keep actions close and support keyboard, screen-reader and non-gesture dismissal.</p><button class="btn primary full">Done</button></div></article>
-</div></section>
-<section id="accessibility" class="section"><div class="section-head"><div><div class="eyebrow">QUALITY</div><h2>Accessibility is part of the component.</h2></div><p>IDS treats accessible names, focus, contrast, localization, reduced motion and worst-case content as system contracts.</p></div><div class="quality-grid"><div class="quality"><b>01</b><h3>Semantics</h3><p>Meaningful roles and accessible names are owned by the component and caller where content is product-specific.</p></div><div class="quality"><b>02</b><h3>Resilience</h3><p>Long Korean, English and Kinyarwanda content, large text and narrow screens are first-class cases.</p></div><div class="quality"><b>03</b><h3>Motion</h3><p>State changes remain understandable when the platform requests reduced motion.</p></div><div class="quality"><b>04</b><h3>Theming</h3><p>Client, Business and Developer surfaces share the same foundation without copying the system.</p></div></div></section>
-<footer><span>Itunda Design System</span><span>Built for the Itunda ecosystem · Open source</span></footer>
-</main><script src="./app.js"></script></body></html>
+
+<section id="foundations" class="section">
+  <div class="section-heading"><div><div class="eyebrow">01 / FOUNDATIONS</div><h2>Consistency starts<br>with the small things.</h2></div><p>Semantic tokens keep the same meaning across web, Android and iOS. Product teams can compose interfaces without creating another version of the system.</p></div>
+  <div class="foundation-grid">
+    <article class="foundation-card color-card"><div class="card-kicker">BRAND COLOR</div><div class="swatch swatch-brand"></div><div class="token-name">Itunda Indigo</div><div class="token-value">#7472F4 <button class="copy-token" data-copy="#7472F4" aria-label="Copy Itunda indigo hex value">Copy</button></div><p>Brand actions, active states and focus accents.</p></article>
+    <article class="foundation-card"><div class="card-kicker">SURFACE</div><div class="swatch swatch-surface"></div><div class="token-name">Raised surface</div><div class="token-value">Semantic surface</div><p>Subtle elevation and space establish hierarchy before borders do.</p></article>
+    <article class="foundation-card"><div class="card-kicker">TYPOGRAPHY</div><div class="type-sample"><strong>Aa</strong><span>Readable by default</span></div><div class="token-name">Pretendard / system</div><div class="token-value">11–30 px scale</div><p>Responsive type with explicit line-height and accessible zoom.</p></article>
+    <article class="foundation-card"><div class="card-kicker">FEEDBACK</div><div class="feedback-sample"><span class="feedback-check">✓</span><div><strong>Payment complete</strong><small>Your action was successful.</small></div></div><div class="token-name">Meaning before decoration</div><div class="token-value">Success / warning / error</div><p>Color is paired with clear text and meaningful semantics.</p></article>
+  </div>
+  <div class="principles"><div><span>Spacing</span><strong>4 · 8 · 12 · 16 · 24 · 32 · 48</strong></div><div><span>Shape</span><strong>10 · 12 · 16 · pill</strong></div><div><span>Motion</span><strong>Purposeful · interruptible · reduced-motion aware</strong></div></div>
+</section>
+
+<section id="components" class="section components-section">
+  <div class="section-heading"><div><div class="eyebrow">02 / COMPONENTS</div><h2>Patterns you can try.</h2></div><p>These are working showcase examples, not a claim that every product already consumes a published component package. Use the source repository to inspect implementation status.</p></div>
+  <div class="component-grid">
+    <article class="demo-card">
+      <div class="demo-heading"><div><span class="component-index">A</span><h3>Actions</h3></div><span class="demo-caption">BUTTON STATES</span></div>
+      <p class="demo-description">Give the next step a clear visual priority.</p>
+      <div class="button-demo"><button id="continue-demo" class="button primary" type="button">Continue <span aria-hidden="true">→</span></button><button id="cancel-demo" class="button secondary" type="button">Cancel</button><button class="button secondary" type="button" disabled>Unavailable</button></div>
+      <p id="action-feedback" class="inline-feedback" role="status" aria-live="polite">Choose an action to see feedback.</p>
+    </article>
+    <article class="demo-card">
+      <div class="demo-heading"><div><span class="component-index">B</span><h3>Text field</h3></div><span class="demo-caption">FORM STATES</span></div>
+      <p class="demo-description">Label first, useful guidance second, validation when needed.</p>
+      <label class="field-label" for="email-demo">Email address</label><input id="email-demo" class="text-field" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="email-hint">
+      <div id="email-hint" class="field-hint">Use an address you can access.</div>
+      <button id="validate-email" class="text-action" type="button">Validate input <span aria-hidden="true">→</span></button>
+      <p id="email-feedback" class="inline-feedback" role="status" aria-live="polite"></p>
+    </article>
+    <article class="demo-card">
+      <div class="demo-heading"><div><span class="component-index">C</span><h3>Navigation</h3></div><span class="demo-caption">SELECTED STATE</span></div>
+      <p class="demo-description">Keep location visible without turning every item into a pill.</p>
+      <div class="nav-demo" role="group" aria-label="Example navigation">
+        <button type="button" class="nav-item is-active" aria-pressed="true"><span aria-hidden="true">⌂</span><b>Home</b></button>
+        <button type="button" class="nav-item" aria-pressed="false"><span aria-hidden="true">◷</span><b>Activity</b></button>
+        <button type="button" class="nav-item" aria-pressed="false"><span aria-hidden="true">◎</span><b>Profile</b></button>
+      </div>
+      <p id="nav-feedback" class="inline-feedback" role="status" aria-live="polite">Home selected.</p>
+    </article>
+    <article class="demo-card">
+      <div class="demo-heading"><div><span class="component-index">D</span><h3>Selection list</h3></div><span class="demo-caption">SINGLE SELECT</span></div>
+      <p class="demo-description">Clear selected state, keyboard-friendly controls and concise labels.</p>
+      <div class="choice-list" role="group" aria-label="Choose a country">
+        <button class="choice is-selected" type="button" aria-pressed="true"><span>Rwanda</span><span class="choice-check">✓</span></button>
+        <button class="choice" type="button" aria-pressed="false"><span>Kenya</span><span class="choice-check"></span></button>
+        <button class="choice" type="button" aria-pressed="false"><span>Uganda</span><span class="choice-check"></span></button>
+      </div>
+      <p id="choice-feedback" class="inline-feedback" role="status" aria-live="polite">Rwanda selected.</p>
+    </article>
+    <article class="demo-card">
+      <div class="demo-heading"><div><span class="component-index">E</span><h3>Feedback</h3></div><span class="demo-caption">STATUS + UNDO</span></div>
+      <p class="demo-description">Confirm outcomes in plain language; make reversible actions obvious.</p>
+      <div class="success-banner"><span class="success-mark">✓</span><div><strong>Changes saved</strong><small>Your preferences are up to date.</small></div></div>
+      <div class="snackbar"><span id="snackbar-message">Demo item saved.</span><button id="undo-demo" type="button">Undo</button></div>
+      <p id="undo-feedback" class="inline-feedback" role="status" aria-live="polite"></p>
+    </article>
+    <article class="demo-card">
+      <div class="demo-heading"><div><span class="component-index">F</span><h3>Sheet pattern</h3></div><span class="demo-caption">DISCLOSURE</span></div>
+      <p class="demo-description">Reveal secondary actions without losing the current context.</p>
+      <div class="sheet-preview"><div class="sheet-handle" aria-hidden="true"></div><strong>Choose an option</strong><p>Continue with a secure, understandable next step.</p><button id="sheet-toggle" class="button primary full-width" type="button" aria-expanded="false" aria-controls="sheet-extra">View options <span aria-hidden="true">↓</span></button><div id="sheet-extra" class="sheet-extra" hidden><button type="button" class="choice"><span>Use a saved method</span><span>→</span></button><button type="button" class="choice"><span>Add a new method</span><span>→</span></button></div></div>
+    </article>
+  </div>
+</section>
+
+<section id="accessibility" class="section quality-section">
+  <div class="section-heading"><div><div class="eyebrow">03 / QUALITY CONTRACTS</div><h2>Quality is part<br>of the component.</h2></div><p>Design-system quality is measurable: a component should have documented behavior, accessibility requirements, implementation ownership and a test strategy.</p></div>
+  <div class="quality-list">
+    <article><span class="quality-number">01</span><div><h3>Accessible by construction</h3><p>Names, roles, focus order, contrast, keyboard support and reduced-motion behavior are verified—not assumed.</p></div><span class="quality-tag">A11Y</span></article>
+    <article><span class="quality-number">02</span><div><h3>Content resilient</h3><p>Test Korean, English and Kinyarwanda; narrow screens; long names; empty, loading, error and success states.</p></div><span class="quality-tag">I18N</span></article>
+    <article><span class="quality-number">03</span><div><h3>Cross-platform parity</h3><p>Web, Android and iOS share token meaning and interaction intent while respecting native platform conventions.</p></div><span class="quality-tag">WEB · ANDROID · IOS</span></article>
+    <article><span class="quality-number">04</span><div><h3>Governed changes</h3><p>Tokens, component API changes and breaking changes need owners, migration notes and automated checks.</p></div><span class="quality-tag">GOVERNANCE</span></article>
+  </div>
+  <div class="quality-note"><span class="note-icon" aria-hidden="true">i</span><p><strong>Benchmark, don’t impersonate.</strong> IDS learns from publicly documented design-system practices, including Toss TDS, but remains an independent system for Itunda’s users and products.</p></div>
+</section>
+<footer><a class="footer-brand" href="#top">itunda <span>design system</span></a><span>One Itunda identity. Shared foundations. Verifiable quality.</span><a href="https://github.com/itunda-rw/itunda-design-system">Open source ↗</a></footer>
+</main>
+<script src="./app.js"></script>
+</body>
+</html>
