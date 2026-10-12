@@ -70,7 +70,7 @@ if (!lightRoot) {
   fail("Cannot find the default :root token block");
 } else {
   for (const token of requiredSemanticTokens) {
-    if (!new RegExp(`(?:^|\\n)\\s*${token.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\$&")}\\s*:`, "m").test(lightRoot[1])) {
+    if (!new RegExp(`(?:^|\\n)\\s*${token}\\s*:`, "m").test(lightRoot[1])) {
       fail(`Missing default-theme semantic token: ${token}`);
     }
   }
