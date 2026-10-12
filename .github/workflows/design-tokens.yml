@@ -1,0 +1,31 @@
+name: IDS design-token contract
+
+on:
+  pull_request:
+    paths:
+      - "design-system/tokens/**"
+      - "scripts/validate-design-tokens.mjs"
+      - ".github/workflows/design-tokens.yml"
+  push:
+    branches: [main]
+    paths:
+      - "design-system/tokens/**"
+      - "scripts/validate-design-tokens.mjs"
+      - ".github/workflows/design-tokens.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-token-contract:
+    name: Validate primitive and semantic tokens
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate token contract
+        run: node scripts/validate-design-tokens.mjs
