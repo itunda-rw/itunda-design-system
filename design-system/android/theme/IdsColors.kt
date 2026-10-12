@@ -20,7 +20,7 @@ import androidx.compose.ui.graphics.Color
  * correctly-numbered constants below.
  */
 object IdsColors {
-    // GENERATED:BEGIN -- do not hand-edit; regenerate with packages/design-tokens/generate-tokens.js from tokens.json (see doc comment above).
+    // GENERATED:BEGIN -- do not hand-edit; regenerate with scripts/generate-design-tokens.mjs from design-system/tokens/tokens.json (see doc comment above).
     val Grey50 = Color(0xFFF9FAFB)
     val Grey100 = Color(0xFFF2F4F6)
     val Grey200 = Color(0xFFE5E8EB)
