@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - "design-system/tokens/**"
+      - "design-system/android/theme/IdsColors.kt"
+      - "scripts/generate-design-tokens.mjs"
       - "scripts/validate-design-tokens.mjs"
       - ".github/workflows/design-tokens.yml"
   push:
