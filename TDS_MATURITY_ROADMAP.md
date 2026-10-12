@@ -16,8 +16,9 @@
 
 - The tracked tree on this branch contains `design-system/tokens/tokens.json`, `design-system/tokens/tokens.css`, and `design-system/android/theme/IdsColors.kt`.
 - The referenced `packages/design-tokens/generate-tokens.js` path is absent from this repository tree. A local deterministic generator now exists at `scripts/generate-design-tokens.mjs` and currently owns only the Android primitive-color generated region.
-- The README describes SwiftUI support, but this repository tree does not contain the claimed iOS source target. Do not claim iOS generation or parity from this repository alone; trace the main Itunda repository and its consumer imports separately.
-- CI now checks generated Android color parity and selected, explicitly documented semantic contrast pairs. These are narrow contract checks, not full-site WCAG certification or cross-platform parity proof.
+- The README describes SwiftUI support, but this standalone repository tree does not contain the claimed iOS source target. The main app repository **does** contain real Android, iOS, web, and Saronite/React Native design-system sources, and code search confirms iOS screens consume `IDS.Colors`; see [`MONOREPO_ADOPTION_AUDIT.md`](./MONOREPO_ADOPTION_AUDIT.md). Source-level consumers do not prove that current builds or visual parity pass.
+- The main app has a token-parity contract and `scripts/design-system-parity.mjs`, but these were not run in this audit. The main app's `client/design-system/tokens.json`, `packages/design-tokens/tokens.json`, and this standalone repo's `design-system/tokens/tokens.json` are distinct files. The CSS token surfaces are also split. Their ownership/update direction must be made explicit before extending generation.
+- CI in this standalone repository checks generated Android color parity and selected, explicitly documented semantic contrast pairs. These are narrow contract checks, not full-site WCAG certification or cross-platform parity proof.
 
 ## Work order
 
@@ -27,9 +28,10 @@
 - Record existing behavior and baseline test results before changing production components.
 
 ### 1. Canonical token contract
-- Select one machine-readable canonical token source after verifying the current generator and all platform consumers.
-- Define schema/version, required semantic roles, token naming, references and deprecation rules.
-- Extend deterministic generation only after locating each platform's actual source target and consumer imports. The current standalone repository gate generates Android primitive colors only; semantic web CSS remains hand-authored, and iOS/Flutter targets require evidence from their actual repositories.
+- First document ownership across the distinct token files in `MONOREPO_ADOPTION_AUDIT.md`; distinguish primitive palette, product semantic roles, typography/layout/motion, and web-only tokens.
+- Select one machine-readable canonical source **per token family** only after verifying generators and consumers; do not flatten semantic theme-specific values into primitive colors.
+- Define schema/version, required semantic roles, token naming, references, generated-file markers and deprecation rules.
+- Extend deterministic generation only after tracing the main app's actual source targets and imports. The standalone repository currently generates/checks only its Android primitive-color region; web semantic CSS remains hand-authored until mappings and intentional light/dark differences are verified.
 - Keep web-only layout tokens clearly separated from platform-neutral tokens.
 - Add deterministic generation and a CI drift check; generated files must not be edited independently.
 
