@@ -6,6 +6,7 @@ on:
       - "design-system/tokens/**"
       - "design-system/android/theme/IdsColors.kt"
       - "scripts/generate-design-tokens.mjs"
+      - "scripts/check-semantic-contrast.mjs"
       - "scripts/validate-design-tokens.mjs"
       - ".github/workflows/design-tokens.yml"
   push:
@@ -31,5 +32,7 @@ jobs:
           node-version: 22
       - name: Check generated Android palette
         run: node scripts/generate-design-tokens.mjs --check
+      - name: Check semantic color contrast
+        run: node scripts/check-semantic-contrast.mjs
       - name: Validate token contract
         run: node scripts/validate-design-tokens.mjs
