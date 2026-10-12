@@ -12,6 +12,13 @@
 - The showcase has a theme control; verify its implementation against actual system, light and dark modes before treating theme behavior as complete.
 - Do not infer that a token or showcase example is consumed by production apps without checking imports and build/test evidence.
 
+## Current repository evidence (2026-10-12)
+
+- The tracked tree on this branch contains `design-system/tokens/tokens.json`, `design-system/tokens/tokens.css`, and `design-system/android/theme/IdsColors.kt`.
+- The referenced `packages/design-tokens/generate-tokens.js` path is absent from this repository tree. A local deterministic generator now exists at `scripts/generate-design-tokens.mjs` and currently owns only the Android primitive-color generated region.
+- The README describes SwiftUI support, but this repository tree does not contain the claimed iOS source target. Do not claim iOS generation or parity from this repository alone; trace the main Itunda repository and its consumer imports separately.
+- CI now checks generated Android color parity and selected, explicitly documented semantic contrast pairs. These are narrow contract checks, not full-site WCAG certification or cross-platform parity proof.
+
 ## Work order
 
 ### 0. Establish evidence
@@ -22,7 +29,7 @@
 ### 1. Canonical token contract
 - Select one machine-readable canonical token source after verifying the current generator and all platform consumers.
 - Define schema/version, required semantic roles, token naming, references and deprecation rules.
-- Generate web, Android, iOS and Flutter outputs from that source where those platforms are supported.
+- Extend deterministic generation only after locating each platform's actual source target and consumer imports. The current standalone repository gate generates Android primitive colors only; semantic web CSS remains hand-authored, and iOS/Flutter targets require evidence from their actual repositories.
 - Keep web-only layout tokens clearly separated from platform-neutral tokens.
 - Add deterministic generation and a CI drift check; generated files must not be edited independently.
 
