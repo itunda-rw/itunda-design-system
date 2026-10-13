@@ -75,10 +75,29 @@
      stack each app already had if it somehow fails to load. */
   --itunda-font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  /* Itunda's current brand anchor (2026-10-14): #8F89FF. This lighter shade is used for
-     identity accents and previews. White text on it is only 2.92:1, so filled primary
-     actions use the darker action token below (4.94:1 with white text), keeping the
-     brand recognizable without sacrificing readable controls. */
+  /* Brand primary rebranded blue -> indigo (2026-08-22, direct user identity work:
+     petal-shape mark + indigo, chosen after a full shape/color exploration pass --
+     see the itunda-identity.html design artifact and
+     project_itunda_brand_identity.md). Not an invented hex: derived by the same real
+     technique Toss's own engineering blog documents for generating a TDS hue family
+     (toss.tech/article/tds-color-system-update) -- hold OKLCH lightness+chroma of the
+     real Toss blue anchor this token held before, rotate hue to 280 deg (indigo),
+     clamp chroma back into sRGB gamut. The current Itunda brand anchor was updated
+     to #8F89FF on 2026-10-14. This lighter identity color is not used as a white-text
+     button fill: white-on-brand is 2.92:1. Primary actions use the darker action token
+     below, measured at 4.94:1 with white text, preserving readable controls. */
+  --itunda-indigo: #8f89ff;
+  --itunda-indigo-active: #655ce8;
+  --itunda-indigo-action: #655ce8;
+  --itunda-indigo-action-hover: #5549c9;
+  --itunda-indigo-light: #f4f2ff;
+  --itunda-red: #f04452;
+  /* Real gap found 2026-08-08 (Toss Simplicity21 research pass, auditing the P2P
+     transfer flow): bank-mfe's scam-warning tint box hardcoded #FDECEA directly (3
+     call sites in BankDashboard.tsx) instead of a token -- no danger-tint semantic
+     existed here at all, unlike --itunda-indigo-light above. Matches Android's real
+     IdsColors.dangerTint (IdsSemanticColors.kt) exactly, same reconciliation this
+     file's other semantic tokens already follow. */
   --itunda-red-light: #ffeceb;
   /* Real WCAG AA contrast fix (item 240, docs/ACCESSIBILITY.md finding #2) -- the
      original #04c065 measured 2.40:1 against white, failing even the lenient
@@ -272,10 +291,10 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --itunda-indigo: #a39eff;
-    --itunda-indigo-active: #655ce8;
-  --itunda-indigo-action: #655ce8;
-  --itunda-indigo-action-hover: #5549c9;
-    --itunda-indigo-light: #2b2948;
+    --itunda-indigo-active: #b9b5ff;
+    --itunda-indigo-action: #6258d9;
+    --itunda-indigo-action-hover: #5145c2;
+    --itunda-indigo-light: #2b2c52;
     --itunda-red: #ff6b7a;
     --itunda-red-light: #3a1418;
     --itunda-green: #20d394;
