@@ -89,7 +89,7 @@ fun IdsButton(
     }
     val widthModifier = if (size == IdsButtonSize.Large) Modifier.fillMaxWidth() else Modifier
     val (containerColor, contentColor) = when (variant) {
-        IdsButtonVariant.Filled -> Ids.colors.brand to IdsColors.White
+        IdsButtonVariant.Filled -> Ids.colors.brandAction to IdsColors.White
         IdsButtonVariant.Tinted -> Ids.colors.pressed to Ids.colors.textBrand
     }
     // Real Toss disabled-CTA reference (2026-08-12, direct user screenshot: a bottom
@@ -100,7 +100,7 @@ fun IdsButton(
     // Only applies to Filled -- Tinted's own disabled state (a secondary style, not
     // shown in the reference) keeps the existing neutral fallback.
     val (disabledContainerColor, disabledContentColor) = when (variant) {
-        IdsButtonVariant.Filled -> Ids.colors.brand.copy(alpha = 0.35f) to IdsColors.White
+        IdsButtonVariant.Filled -> Ids.colors.brandAction.copy(alpha = 0.35f) to IdsColors.White
         IdsButtonVariant.Tinted -> Ids.colors.divider to Ids.colors.textTertiary
     }
     // Real Toss micro-interaction reference (2026-08-11) -- "시각적 신호가 탭이 발생하는
