@@ -41,6 +41,7 @@ data class IdsSemanticColors(
     val textSecondary: Color,
     val textTertiary: Color,
     val brand: Color,
+    val brandAction: Color,
     val textBrand: Color,
     val divider: Color,
     val chip: Color,
@@ -91,8 +92,9 @@ val IdsLightSemanticColors = IdsSemanticColors(
     // hold L/C of the old 0xFF3182F6, rotate hue to 280deg, clamp chroma to gamut.
     // WCAG-verified: white-on-brand 3.85:1 (was 3.71:1, both clear the real 3:1
     // AA-large/UI-component bar this role is held to).
-    brand = Color(0xFF7472F4),
-    textBrand = Color(0xFF7472F4),
+    brand = Color(0xFF8F89FF),
+    brandAction = Color(0xFF655CE8),
+    textBrand = Color(0xFF655CE8),
     divider = Color(0xFFE5E8EB),
     chip = Color(0xFFF2F4F6),
     pressed = Color(0xFFEEF0FF),
@@ -133,8 +135,9 @@ val IdsDarkSemanticColors = IdsSemanticColors(
     // 0xFF3485FA (Toss's real adaptive-dark blue) to indigo at the same hue.
     // WCAG-verified: brand-vs-background 4.82:1 (was 5.00:1 against 0xFF17171C),
     // both comfortably clear 4.5:1 AA-normal-text.
-    brand = Color(0xFF7675F8),
-    textBrand = Color(0xFF7675F8),
+    brand = Color(0xFFA39EFF),
+    brandAction = Color(0xFF6258D9),
+    textBrand = Color(0xFFB9B5FF),
     divider = Color(0xFF3C3C47),
     chip = Color(0xFF2C2C35),
     pressed = Color(0xFF2B2C52),
